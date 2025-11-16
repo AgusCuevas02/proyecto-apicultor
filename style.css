@@ -1,0 +1,170 @@
+/* Importar fuentes bonitas (opcional, pero recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #4A3F35; /* Marrón oscuro */
+    margin: 0;
+    padding: 20px;
+    background-color: #FFFBF0;
+    background-image:url('panal.png');
+    background-repeat: repeat;
+    background-size: 200px;
+}
+
+
+/* --- Estilos del Login (index.html) --- */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive; 
+    color: #EAA000; /* Color miel */
+    font-size: 2.5em;
+}
+
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #EEE;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #EAA000; /* Color miel */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #c78500;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    height: 20px; /* Para que no mueva el layout */
+}
+
+
+/* --- Estilos de la Home (home.html) --- */
+main {
+    display: flex; /* Ponemos la timeline y los datos uno al lado del otro */
+    gap: 20px;
+}
+
+.timeline {
+    width: 70%;
+}
+
+.datos-curiosos {
+    width: 30%;
+    text-align: center;
+}
+.imagen {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Estilo de la tarjeta de datos */
+.card {
+    background-color: #FFFFFF;
+    border: 2px dashed #EAA000; /* Borde punteado */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Estilo de la Línea de Tiempo */
+.timeline-item {
+    margin-bottom: 20px;
+}
+
+.timeline-sobre {
+    background-color: #FFD56F; /* Amarillo miel más suave */
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer; /* Indica que se puede hacer clic */
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-sobre:hover {
+    transform: scale(1.02); /* Efecto sutil */
+    transition: transform 0.2s;
+}
+
+/* MUY IMPORTANTE: Ocultamos el contenido por defecto */
+.timeline-contenido {
+    max-height: 0;
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    
+    /* ¡La magia de la transición! */
+    transition: max-height 0.7s ease-out; /* Duración y efecto */
+
+    /* Dejamos los otros estilos que ya tenías */
+    background-color: #fff;
+    padding-top: 0; /* Ajustamos padding para la animación */
+    padding-bottom: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #EEE;
+}
+
+/* Se 'activa' con JS */
+.timeline-contenido.abierto {
+    max-height: 500px; /* Dale una altura suficiente para tu contenido */
+    /* Ajustamos el padding para cuando esté abierto */
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* La clase que aplicaremos con JS */
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  
+  /* 1. Hacemos que el contenedor principal ponga los 
+     elementos uno ENCIMA del otro, en lugar de uno AL LADO */
+  main {
+    flex-direction: column;
+  }
+
+  /* 2. Hacemos que ambas "columnas" ahora ocupen 
+     el 100% del ancho, para que se lean bien */
+  .timeline,
+  .datos-curiosos {
+    width: 100%;
+    
+    /* (Opcional) Añadimos un poco de margen 
+       para que no queden pegados */
+    margin-bottom: 20px;
+  }
+}
