@@ -135,6 +135,7 @@ main {
     /* Ajustamos el padding para cuando esté abierto */
     padding-top: 20px; 
     padding-bottom: 20px;
+    overflow: auto;
 }
 @keyframes shake {
   0% { transform: translateX(0); }
@@ -167,4 +168,24 @@ main {
        para que no queden pegados */
     margin-bottom: 20px;
   }
+}
+.timeline-contenido::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* El "carril" de fondo */
+.timeline-contenido::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+
+/* La barra en sí (el pulgar) */
+.timeline-contenido::-webkit-scrollbar-thumb {
+    background: #EAA000; /* Color Miel */
+    border-radius: 4px;
+}
+
+/* Efecto al pasar el mouse */
+.timeline-contenido::-webkit-scrollbar-thumb:hover {
+    background: #c78500; 
 }
